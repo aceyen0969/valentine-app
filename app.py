@@ -1,10 +1,12 @@
+import os
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'valentine_secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "site.db")}'
 db = SQLAlchemy(app)
 
 class Confession(db.Model):
