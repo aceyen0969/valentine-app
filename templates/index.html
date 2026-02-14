@@ -9,10 +9,10 @@
   </head>
   <body>
     <div class="container" id="mainContent">
+      <!-- CONSENT SCREEN -->
       <div id="consentScreen">
         <h1>This website contains dramatic Valentine chaos 💘</h1>
         <p>Do you accept Chaos Mode?</p>
-
         <button onclick="activateChaos()">YES 😈</button>
         <button onclick="normalMode()">NO 🙂</button>
       </div>
@@ -23,6 +23,7 @@
       let noClicks = 0;
       let yesSize = 18;
 
+      // ----- CONSENT SCREEN -----
       function activateChaos() {
         chaosActivated = true;
         loadValentineScreen();
@@ -33,6 +34,7 @@
         loadValentineScreen();
       }
 
+      // ----- LOAD VALENTINE SCREEN -----
       function loadValentineScreen() {
         document.getElementById("mainContent").innerHTML = `
         <h1>Will you be my Valentine? 💖</h1>
@@ -46,6 +48,7 @@
     `;
       }
 
+      // ----- YES BUTTON -----
       function sayYes() {
         document.body.innerHTML = `
         <div class="container">
@@ -55,6 +58,7 @@
     `;
       }
 
+      // ----- NO BUTTON -----
       function sayNo() {
         const yesBtn = document.getElementById("yesBtn");
         const noBtn = document.getElementById("noBtn");
@@ -65,6 +69,7 @@
           return;
         }
 
+        // CHAOS MODE
         noClicks++;
         yesSize += 10;
         yesBtn.style.fontSize = yesSize + "px";
@@ -83,6 +88,7 @@
         moveNoButton(noBtn);
       }
 
+      // ----- MOVE NO BUTTON -----
       function moveNoButton(btn) {
         const x = Math.random() * 300 - 150;
         const y = Math.random() * 200 - 100;
@@ -92,6 +98,5 @@
         btn.style.top = y + "px";
       }
     </script>
-    <p>Created by Aceyen/Keat</p>
   </body>
 </html>
