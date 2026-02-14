@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Anonymous Confessions</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Anonymous Valentine's Confessions 💌</h1>
+
+      <form method="POST">
+        <textarea
+          name="message"
+          placeholder="Write your confession..."
+          required
+        ></textarea>
+        <br />
+        <button type="submit">Submit 💕</button>
+      </form>
+
+      <div class="confession-list">
+        {% for confession in confessions %}
+        <div class="confession">
+          <p>{{ confession.message }}</p>
+          <small>{{ confession.date_posted.strftime('%Y-%m-%d %H:%M') }}</small>
+        </div>
+        {% endfor %}
+      </div>
+
+      <br />
+      <a href="/">Back 💘</a>
+    </div>
+  </body>
+</html>

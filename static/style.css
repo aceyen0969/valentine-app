@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, pink, #ffb6c1);
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 60%;
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background-color: #777;
+  color: white;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.confession {
+  background: #ffe6f0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}

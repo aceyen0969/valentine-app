@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Valentine Chaos Mode 💘</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container" id="mainContent">
+      <div id="consentScreen">
+        <h1>This website contains dramatic Valentine chaos 💘</h1>
+        <p>Do you accept Chaos Mode?</p>
+
+        <button onclick="activateChaos()">YES 😈</button>
+        <button onclick="normalMode()">NO 🙂</button>
+      </div>
+    </div>
+
+    <script>
+      let chaosActivated = false;
+      let noClicks = 0;
+      let yesSize = 18;
+
+      function activateChaos() {
+        chaosActivated = true;
+        loadValentineScreen();
+      }
+
+      function normalMode() {
+        chaosActivated = false;
+        loadValentineScreen();
+      }
+
+      function loadValentineScreen() {
+        document.getElementById("mainContent").innerHTML = `
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="sayYes()">YES 💕</button>
+            <button id="noBtn" onclick="sayNo()">NO 😅</button>
+        </div>
+        <p id="message"></p>
+        <br>
+        <a href="/confessions">Read Anonymous Confessions 💌</a>
+    `;
+      }
+
+      function sayYes() {
+        document.body.innerHTML = `
+        <div class="container">
+            <h1>🎉 SHE SAID YES 🎉</h1>
+            <p>Best Valentine Ever 💘</p>
+        </div>
+    `;
+      }
+
+      function sayNo() {
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const message = document.getElementById("message");
+
+        if (!chaosActivated) {
+          message.innerHTML = "I respect your decision 🙂";
+          return;
+        }
+
+        noClicks++;
+        yesSize += 10;
+        yesBtn.style.fontSize = yesSize + "px";
+
+        const chaosTexts = [
+          "System Error: Rejection Not Found 😭",
+          "Are you absolutely sure?? 🥺",
+          "Chocolate incoming 🍫",
+          "Flowers deployed 🌹",
+          "This is getting intense 👀",
+        ];
+
+        message.innerHTML =
+          chaosTexts[Math.floor(Math.random() * chaosTexts.length)];
+
+        moveNoButton(noBtn);
+      }
+
+      function moveNoButton(btn) {
+        const x = Math.random() * 300 - 150;
+        const y = Math.random() * 200 - 100;
+
+        btn.style.position = "relative";
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+      }
+    </script>
+    <p>Created by Aceyen/Keat</p>
+  </body>
+</html>
